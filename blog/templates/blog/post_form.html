@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" id="post_form">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Новая запись</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" onclick="create_files();" type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function create_files() {
+            let name = document.getElementById("id_title").value;
+
+            $.ajax({
+                url: '/new_files/',
+                type: 'GET',
+                dataType: 'json',
+                data: {'name': name},
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (error) {
+                    console.error('Ошибка:', error);
+                }
+            });
+
+        }
+    </script>
+{% endblock content %}

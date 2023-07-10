@@ -1,0 +1,746 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1 id="game">{{ name }}</h1>
+{#    <a class="btn btn-primary btn-sm mt-1 mb-1" href="">Сохранить</a>#}
+{#    <a class="btn btn-warning btn-sm mt-1 mb-1" href="">Сбросить текущий тур</a>#}
+{#    <a class="btn btn-danger btn-sm mt-1 mb-1" href="">Сбросить всё</a>#}
+
+
+    <br><br>
+    {% if count_tour > 5 %}
+        <span class="tour red">6 ТУР</span><br>
+        <div class="row c">
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>5 - 0</span><br><br>
+                {% for com in tour6_1 %}
+                    <input type="checkbox" id="ch1" name="tour_6">
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    <input type="checkbox" name="tour_6">
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>4 - 1</span><br><br>
+                {% for com in tour6_2 %}
+                    <input type="checkbox" id="ch1" name="tour_6">
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    <input type="checkbox" name="tour_6">
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>3 - 2</span><br><br>
+                {% for com in tour6_3 %}
+                    <input type="checkbox" id="ch1" name="tour_6">
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    <input type="checkbox" name="tour_6">
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>2 - 3</span><br><br>
+                {% for com in tour6_4 %}
+                    <input type="checkbox" id="ch1" name="tour_6">
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    <input type="checkbox" name="tour_6">
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>1 - 4</span><br><br>
+                {% for com in tour6_5 %}
+                    <input type="checkbox" id="ch1" name="tour_6">
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    <input type="checkbox" name="tour_6">
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>0 - 5</span><br><br>
+                {% for com in tour6_6 %}
+                    <input type="checkbox" id="ch1" name="tour_6">
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    <input type="checkbox" name="tour_6">
+                    <br>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% if tour5_1 %}
+             <div class="col-md-12">
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_6" onclick="reset6();">Сбросить</a>
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_6" onclick="save6();">Сохранить</a>
+             </div>
+         {% endif %}
+
+        <br>
+        <div class="row c">
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+        </div>
+
+    {% endif %}
+
+
+
+    {% if count_tour > 4 %}
+        <span class="tour red">5 ТУР</span><br>
+        <div class="row c">
+
+            <div class="block col-md-6" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>4 - 0</span><br><br>
+                {% for com in tour5_1 %}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" id="ch1" name="tour_5">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" name="tour_5">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-6" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>3 - 1</span><br><br>
+                {% for com in tour5_2 %}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" id="ch1" name="tour_5">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" name="tour_5">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>2 - 2</span><br><br>
+                {% for com in tour5_3 %}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" id="ch1" name="tour_5">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" name="tour_5">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>1 - 3</span><br><br>
+                {% for com in tour5_4 %}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" id="ch1" name="tour_5">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" name="tour_5">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-4" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>0 - 4</span><br><br>
+                {% for com in tour5_5 %}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" id="ch1" name="tour_5">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 5 %}
+                    <input type="checkbox" name="tour_5">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% if tour5_1 %}
+             <div class="col-md-12">
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_5" onclick="reset5();">Сбросить</a>
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_5" onclick="save5();">Сохранить</a>
+             </div>
+         {% endif %}
+
+        <br>
+        <div class="row c">
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+        </div>
+
+    {% endif %}
+
+
+    {% if count_tour > 3 %}
+        <span class="tour red">4 ТУР</span><br>
+        <div class="row c">
+             <div class="block col-md-3" style="font-size: 9px; letter-spacing: 0.01em;">
+                <span class="count"><br>3 - 0</span><br><br>
+                {% for com in tour4_1 %}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" id="ch1" name="tour_4">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red" style="font-size: 12px;">VS</span> {{ com.1 }}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" name="tour_4">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+             <div class="block col-md-3" style="font-size: 9px; letter-spacing: 0.1px;">
+                <span class="count"><br>2 - 1</span><br><br>
+                {% for com in tour4_2 %}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" id="ch1" name="tour_4">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red" style="font-size: 12px;">VS</span> {{ com.1 }}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" name="tour_4">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+             <div class="block col-md-3" style="font-size: 9px; letter-spacing: 0.1px;">
+                <span class="count"><br>1 - 2</span><br><br>
+                {% for com in tour4_3 %}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" id="ch1" name="tour_4">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red" style="font-size: 12px;">VS</span> {{ com.1 }}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" name="tour_4">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-3" style="font-size: 9px; letter-spacing: 0.1px;">
+                <span class="count"><br>0 - 3</span><br><br>
+                {% for com in tour4_4 %}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" id="ch1" name="tour_4">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red" style="font-size: 12px;">VS</span> {{ com.1 }}
+                    {% if count_tour == 4 %}
+                    <input type="checkbox" name="tour_4">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+        {% if tour4_1 %}
+             <div class="col-md-12">
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_4" onclick="reset4();">Сбросить</a>
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_4" onclick="save4();">Сохранить</a>
+             </div>
+         {% endif %}
+        <br>
+
+
+        <div class="row c">
+            <div class="col-md-3">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+        </div>
+
+    {% endif %}
+
+
+    {% if count_tour > 2 %}
+        <span class="tour red">3 ТУР</span><br>
+        <div class="row c">
+            <div class="block col-md-3" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>2 - 0</span><br><br>
+                {% for com in tour3_1 %}
+                    {% if count_tour == 3 %}
+                    <input type="checkbox" id="ch1" name="tour_3">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 3 %}
+                    <input type="checkbox" name="tour_3">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+            <div class="block col-md-3" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>1 - 1</span><br><br>
+                {% for com in tour3_2 %}
+                    {% if count_tour == 3 %}
+                    <input type="checkbox" id="ch1" name="tour_3">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 3 %}
+                    <input type="checkbox" name="tour_3">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+
+
+            </div>s
+
+            <div class="block col-md-3" style="font-size: 10px; letter-spacing: 0.1px;">
+                <span class="count"><br>0 - 2</span><br><br>
+                {% for com in tour3_3 %}
+                    {% if count_tour == 3 %}
+                    <input type="checkbox" id="ch1" name="tour_3">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 3 %}
+                    <input type="checkbox" name="tour_3">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+        {% if tour3_1 %}
+             <div class="col-md-12">
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_3" onclick="reset3();">Сбросить</a>
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_3" onclick="save3();">Сохранить</a>
+             </div>
+         {% endif %}
+        </div>
+        <br>
+        <div class="row c">
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+        </div>
+    {% endif %}
+
+
+    {% if count_tour > 1 %}
+
+        <span class="tour red">2 ТУР</span><br>
+        <div class="row c">
+            <div class="block col-md-6">
+                <span class="count"><br>1 - 0</span><br><br>
+                {% for com in tour2_1 %}
+                    {% if count_tour == 2 %}
+                    <input type="checkbox" id="ch1" name="tour_2">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 2 %}
+                    <input type="checkbox" name="tour_2">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+
+             <div class="block col-md-6">
+                <span class="count"><br>0 - 1</span><br><br>
+                {% for com in tour2_2 %}
+                    {% if count_tour == 2 %}
+                    <input type="checkbox" id="ch1" name="tour_2">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 2 %}
+                    <input type="checkbox" name="tour_2">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+             </div>
+         {% if tour2_2 %}
+             <div class="col-md-12">
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_2" onclick="reset2();">Сбросить</a>
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_2" onclick="save2();">Сохранить</a>
+             </div>
+         {% endif %}
+        </div>
+
+        <br>
+        <div class="row c">
+            <div class="col-md-6">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'blog/down.png' %}">
+            </div>
+        </div>
+
+    {% endif %}
+
+
+
+    {% if count_tour > 0 %}
+        <span class="tour red">1 ТУР</span><br>
+        <div class="row c">
+            <div class="block col-md-12">
+                <span class="count"><br>0 - 0</span><br><br>
+                {% for com in tour1 %}
+                    {% if count_tour == 1 %}
+                    <input type="checkbox" id="ch1" name="tour_1">
+                    {% endif %}
+                    {{ com.0 }}  <span class="red">VS</span> {{ com.1 }}
+                    {% if count_tour == 1 %}
+                    <input type="checkbox" id="ch1" name="tour_1">
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+        {% if tour1 %}
+             <div class="col-md-12">
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="reset_1" onclick="reset1();">Сбросить</a>
+                 <a class="btn btn-primary btn-sm mt-1 mb-1" id="tour_1" onclick="save1();">Сохранить</a>
+             </div>
+         {% endif %}
+    {% endif %}
+    <br><br>
+    <style>
+        .block {
+            border: 2px solid #669acd;
+            text-align: center;
+            line-height: 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: black;
+            border-radius: 30px;
+            margin: auto;
+            font-family: Arial;
+        }
+
+        .count {
+            color: black;
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            padding-top: 2px;
+            margin: auto;
+        }
+
+        .tour {
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        body {;
+            color: #fff;
+            background-size: 100%;
+            text-align: center;
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+            padding-top: 1%;
+        }
+
+        .c {
+            text-align: center;
+        }
+
+        .red {
+            color: #669acd;
+            font-family: Verdana;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        // 1 tour
+        function save1() {
+            let game = document.getElementById('game').textContent;
+            let arr = ""
+            const ch = document.querySelectorAll('input[name="tour_1"]');
+            let count_1 = 0
+            let count_0 = 0
+            for (const f of ch) {
+                if (f.checked) {
+                    arr += 1
+                    count_1 += 1
+                } else {
+                    arr += 0
+                    count_0 += 1
+                }
+            }
+
+            if (count_1 == count_0) {
+                 $.ajax({
+                    url: '/save_tour_1/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'data': arr, 'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+                location.href = window.location.href;
+            }
+        }
+
+        function reset1(){
+            let game = document.getElementById('game').textContent;
+            $.ajax({
+                    url: '/reset_1/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+
+            location.href = window.location.href;
+        }
+
+        // 2 tour
+
+        function save2() {
+            let game = document.getElementById('game').textContent;
+            let arr = ""
+            const ch = document.querySelectorAll('input[name="tour_2"]');
+            let count_1 = 0
+            let count_0 = 0
+            for (const f of ch) {
+                if (f.checked) {
+                    arr += 1
+                    count_1 += 1
+                } else {
+                    arr += 0
+                    count_0 += 1
+                }
+            }
+
+             if (count_1 == count_0) {
+                 $.ajax({
+                    url: '/save_tour_2/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'data': arr, 'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+                location.href = window.location.href;
+            }
+
+        }
+        function reset2(){
+            let game = document.getElementById('game').textContent;
+            $.ajax({
+                    url: '/reset_2/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+
+            location.href = window.location.href;
+        }
+
+        // 3 tour
+
+        function save3() {
+            let game = document.getElementById('game').textContent;
+            let arr = ""
+            const ch = document.querySelectorAll('input[name="tour_3"]');
+            let count_1 = 0
+            let count_0 = 0
+            for (const f of ch) {
+                if (f.checked) {
+                    arr += 1
+                    count_1 += 1
+                } else {
+                    arr += 0
+                    count_0 += 1
+                }
+            }
+
+             if (count_1 == count_0) {
+                 $.ajax({
+                    url: '/save_tour_3/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'data': arr, 'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+                location.href = window.location.href;
+            }
+
+        }
+        function reset3(){
+            let game = document.getElementById('game').textContent;
+            $.ajax({
+                    url: '/reset_3/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+
+            location.href = window.location.href;
+        }
+
+        // 4 tour
+
+        function save4() {
+            let game = document.getElementById('game').textContent;
+            let arr = ""
+            const ch = document.querySelectorAll('input[name="tour_4"]');
+            let count_1 = 0
+            let count_0 = 0
+            for (const f of ch) {
+                if (f.checked) {
+                    arr += 1
+                    count_1 += 1
+                } else {
+                    arr += 0
+                    count_0 += 1
+                }
+            }
+
+             if (count_1 == count_0) {
+                 $.ajax({
+                    url: '/save_tour_4/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'data': arr, 'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+                location.href = window.location.href;
+            }
+
+        }
+        function reset4(){
+            let game = document.getElementById('game').textContent;
+            $.ajax({
+                    url: '/reset_4/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+
+            location.href = window.location.href;
+        }
+
+        // 5 tour
+
+        function save5() {
+            let game = document.getElementById('game').textContent;
+            let arr = ""
+            const ch = document.querySelectorAll('input[name="tour_5"]');
+            let count_1 = 0
+            let count_0 = 0
+            for (const f of ch) {
+                if (f.checked) {
+                    arr += 1
+                    count_1 += 1
+                } else {
+                    arr += 0
+                    count_0 += 1
+                }
+            }
+
+             if (count_1 == count_0) {
+                 $.ajax({
+                    url: '/save_tour_5/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'data': arr, 'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+                location.href = window.location.href;
+            }
+
+        }
+        function reset5(){
+            let game = document.getElementById('game').textContent;
+            $.ajax({
+                    url: '/reset_5/',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {'name': game},
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.error('Ошибка:', error);
+                    }
+                });
+
+            location.href = window.location.href;
+        }
+    </script>
+
+{% endblock content %}
